@@ -17,4 +17,5 @@ jobs:
       - name: Unit Test Helm Charts
         run: |
           #!/bin/bash
-          ls -all
+          helm dependency update charts/micro-node-red
+          helm unittest charts/micro-node-red
