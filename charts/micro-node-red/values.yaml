@@ -1,0 +1,13 @@
+runtime: micro-nodered
+
+fullnameOverride: micro-nodered
+
+deployment:
+  replicas: 1
+  image:
+    pullPolicy: IfNotPresent
+    repository: ymedlop/micro-nodered
+    tag: 1.0.0
+
+hpa:
+  enabled: false

@@ -1,0 +1,38 @@
+suite: test deployment
+templates:
+  - deployment.yaml
+tests:
+
+  - it: It should create a Deployment
+    asserts:
+      - isKind:
+          of: Deployment
+
+  - it: It should have 3 replicas
+    set:
+      deployment.replicas: 3
+    asserts:
+      - equal:
+          path: spec.replicas
+          value: 3
+
+  - it: It should have a declare a service account
+    set:
+      deployment.serviceAccountName: custom-service-account
+    asserts:
+      - equal:
+          path: spec.template.spec.serviceAccountName
+          value: custom-service-account
+
+  - it: It should have declare a custom container image
+    set:
+      deployment.image.repository: custom-node-red
+      deployment.image.tag: 1.0.0
+    asserts:
+      - contains:
+          path: spec.template.spec.containers
+          content:
+            image: custom-node-red:1.0.0
+            imagePullPolicy: IfNotPresent
+            name: micro-nodered
+

@@ -1,0 +1,5 @@
+.idea
+dist
+Chart.lock
+
+charts/*/charts

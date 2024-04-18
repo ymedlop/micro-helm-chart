@@ -1,0 +1,9 @@
+version: "3"
+services:
+  helm-unittest:
+    container_name: helm-unittest
+    build: .
+    volumes:
+      - type: bind
+        source: .
+        target: /apps
