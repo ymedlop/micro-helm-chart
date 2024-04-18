@@ -1,0 +1,18 @@
+name: Helm Unit Test
+on:
+  push:
+    branches:
+      - main
+jobs:
+  helm-unittest:
+    name: Helm Unit Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: azure/setup-helm@v4.2.0
+      - name: Unit Test Helm Charts
+        run: |
+          #!/bin/bash
+          helm plugin install https://github.com/helm-unittest/helm-unittest.git
+          helm dependency update /charts/micro-node-red
+          helm unittest /charts/micro-node-red
