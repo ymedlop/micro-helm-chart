@@ -3,5 +3,10 @@
 # Micro Helm Chart
 Helm Charts for micro-services deployments in Kubernetes following the DRY (Don't Repeat Yourself) principle.
 
+```console
+helm repo add ymedlop https://ymedlop.github.io/micro-helm-charts
+helm repo update
+```
+
 ## License
 [Apache License 2.0](/LICENSE)
