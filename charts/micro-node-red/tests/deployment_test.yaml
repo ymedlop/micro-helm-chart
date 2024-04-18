@@ -2,7 +2,6 @@ suite: test deployment
 templates:
   - deployment.yaml
 tests:
-
   - it: It should create a Deployment
     asserts:
       - isKind:

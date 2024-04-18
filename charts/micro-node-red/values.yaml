@@ -8,6 +8,17 @@ deployment:
     pullPolicy: IfNotPresent
     repository: ymedlop/micro-nodered
     tag: 1.0.0
+  readinessProbe:
+    enabled: false
+  livenessProbe:
+    enabled: false
+
+service:
+  ports:
+    - name: http-8080
+      port: 8080
+      protocol: TCP
+      targetPort: 8080-tcp
 
 hpa:
   enabled: false

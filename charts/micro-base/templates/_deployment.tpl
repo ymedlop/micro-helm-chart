@@ -4,6 +4,10 @@ kind: Deployment
 metadata:
   name: {{ template "micro-base.fullname" . }}
   labels:
+    app.kubernetes.io/name: {{ template "micro-base.fullname" $ }}
+    app.kubernetes.io/instance: {{ template "micro-base.fullname" $ }}
+    app.kubernetes.io/version: {{ .Values.deployment.image.tag }}
+    app.kubernetes.io/managed-by: helm
     app: {{ template "micro-base.fullname" . }}
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
     runtime: {{ .Values.runtime }}
@@ -28,5 +32,4 @@ spec:
       {{- end }}
       # containers
       {{ include "micro-base.deployment_containers" . }}
-
 {{- end }}

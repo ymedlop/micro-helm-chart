@@ -15,4 +15,5 @@
         - {{ . | quote }}
         {{- end }}
         {{- end }}
+        {{ include "micro-base.deployment_probes" . }}
 {{- end }}

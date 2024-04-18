@@ -1,0 +1,26 @@
+suite: test service
+templates:
+  - service.yaml
+tests:
+ - it: It should create a SERVICE
+   set:
+    hpa.enabled: true
+   asserts:
+    - isKind:
+        of: Service
+
+ - it: It should create a Service exposing port 8080
+   set:
+      service.ports:
+        - name: http-8080
+          port: 8080
+          protocol: TCP
+          targetPort: 8080-tcp
+   asserts:
+      - contains:
+          path: spec.ports
+          content:
+            name: http-8080
+            port: 8080
+            protocol: TCP
+            targetPort: 8080-tcp

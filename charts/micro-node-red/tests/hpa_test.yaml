@@ -1,0 +1,44 @@
+suite: test hpa
+templates:
+  - hpa.yaml
+tests:
+  - it: It should create a HPA
+    set:
+      hpa.enabled: true
+    asserts:
+      - isKind:
+          of: HorizontalPodAutoscaler
+
+  - it: It should create a HPA with minReplicas 3 and maxReplicas 6
+    set:
+      hpa.enabled: true
+      hpa.minReplicas: 3
+      hpa.maxReplicas: 6
+    asserts:
+      - equal:
+          path: spec.minReplicas
+          value: 3
+      - equal:
+          path: spec.maxReplicas
+          value: 6
+  
+  - it: It should create a HPA with a custom Memory Metric for AverageValue 1024Mi
+    set:
+      hpa.enabled: true
+      hpa.metrics:
+        - type: Resource
+          resource:
+            name: memory
+            target:
+              type: AverageValue
+              averageValue: "1024Mi"
+    asserts:
+      - contains:
+          path: spec.metrics
+          content:
+            type: Resource
+            resource:
+              name: memory
+              target:
+                type: AverageValue
+                averageValue: "1024Mi"
