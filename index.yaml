@@ -1,0 +1,25 @@
+apiVersion: v1
+entries:
+  micro-base:
+  - apiVersion: v2
+    created: "2024-04-18T22:16:43.476330639Z"
+    digest: 8e901ec6f55c0df6750a464126632a43a187ad4bcc04baa433f2e40da6d32db1
+    name: micro-base
+    type: application
+    urls:
+    - https://github.com/ymedlop/micro-helm-chart/releases/download/micro-base-1.0.0/micro-base-1.0.0.tgz
+    version: 1.0.0
+  micro-nodered:
+  - apiVersion: v2
+    created: "2024-04-18T22:16:43.563430281Z"
+    dependencies:
+    - name: micro-base
+      repository: file://../micro-base
+      version: 1.0.0
+    digest: a14e3841c0af26a6dfd4299e5f054f57016a0d058427d368737ed589c94cfcde
+    name: micro-nodered
+    type: application
+    urls:
+    - https://github.com/ymedlop/micro-helm-chart/releases/download/micro-nodered-1.0.0/micro-nodered-1.0.0.tgz
+    version: 1.0.0
+generated: "2024-04-18T22:16:43.563443105Z"
