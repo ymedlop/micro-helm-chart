@@ -1,4 +1,7 @@
 #!/bin/ash
 
-helm dependency update /apps/charts/micro-node-red
-helm unittest /apps/charts/micro-node-red
+for D in $(find charts -not -path '*/.*' -mindepth 1 -maxdepth 1 -type d)
+do
+  helm dependency update $D
+  helm unittest $D
+done
