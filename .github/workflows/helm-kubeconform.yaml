@@ -1,0 +1,25 @@
+name: Helm Kubeconform
+on:
+  push:
+    branches:
+      - main
+jobs:
+  helm-kubeconform:
+    name: Helm Kubeconform
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: azure/setup-helm@v4
+      - name: Install helm-kubeconform plugin
+        run: |
+          #!/bin/bash
+          helm plugin install https://github.com/melmorabity/helm-kubeconform --version 0.6.4.1
+      - name: Helm Kubeconform
+        run: |
+          #!/bin/bash
+          set -e
+          for D in $(find charts -not -path '*/.*' -mindepth 1 -maxdepth 1 -type d)
+          do
+            helm dependency update $D
+            helm kubeconform $D --schema-location https://raw.githubusercontent.com/kubernetes/kubernetes/master/api/openapi-spec/v3/apis__apiextensions.k8s.io__v1_openapi.json
+          done
