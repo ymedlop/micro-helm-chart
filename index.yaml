@@ -2,6 +2,14 @@ apiVersion: v1
 entries:
   micro-base:
   - apiVersion: v2
+    created: "2024-05-24T13:29:16.012431736Z"
+    digest: 916baf05fc36f7cf46ba9189823ca377293c5e865c6a9d939c6d6e2b743c0501
+    name: micro-base
+    type: application
+    urls:
+    - https://github.com/ymedlop/micro-helm-charts/releases/download/micro-base-1.0.2/micro-base-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
     created: "2024-04-18T23:14:57.997140954Z"
     digest: 866b9432d62d80174958ac2e608d5193deb40667d3f9929bcac5a8b84b60e2e2
     name: micro-base
@@ -17,7 +25,32 @@ entries:
     urls:
     - https://github.com/ymedlop/micro-helm-chart/releases/download/micro-base-1.0.0/micro-base-1.0.0.tgz
     version: 1.0.0
+  micro-nginx:
+  - apiVersion: v2
+    created: "2024-05-24T13:29:16.188419471Z"
+    dependencies:
+    - name: micro-base
+      repository: file://../micro-base
+      version: 1.0.2
+    digest: 663ee2864944e83d7da8f4dbd44ec64079e0b3b7a6c12c22ac8c7d9838724797
+    name: micro-nginx
+    type: application
+    urls:
+    - https://github.com/ymedlop/micro-helm-charts/releases/download/micro-nginx-1.0.2/micro-nginx-1.0.2.tgz
+    version: 1.0.2
   micro-nodered:
+  - apiVersion: v2
+    created: "2024-05-24T13:29:16.362751796Z"
+    dependencies:
+    - name: micro-base
+      repository: file://../micro-base
+      version: 1.0.2
+    digest: e24e465a60c3becf25a7ab5b49417307110c422170d6bbfa7d36dad5b26ecb55
+    name: micro-nodered
+    type: application
+    urls:
+    - https://github.com/ymedlop/micro-helm-charts/releases/download/micro-nodered-1.0.2/micro-nodered-1.0.2.tgz
+    version: 1.0.2
   - apiVersion: v2
     created: "2024-04-18T23:14:58.115848542Z"
     dependencies:
@@ -42,4 +75,4 @@ entries:
     urls:
     - https://github.com/ymedlop/micro-helm-chart/releases/download/micro-nodered-1.0.0/micro-nodered-1.0.0.tgz
     version: 1.0.0
-generated: "2024-04-18T23:14:58.115860143Z"
+generated: "2024-05-24T13:29:16.36277507Z"
