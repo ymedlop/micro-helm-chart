@@ -1,8 +1,8 @@
 apiVersion: v2
 name: micro-nginx
 type: application
-version: 1.0.3
+version: 1.0.4
 dependencies:
   - name: micro-base
-    version: 1.0.3
+    version: 1.0.4
     repository: file://../micro-base
