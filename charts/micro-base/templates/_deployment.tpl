@@ -30,18 +30,8 @@ spec:
       {{- if .Values.deployment.serviceAccountName }}
       serviceAccountName: {{ .Values.deployment.serviceAccountName }}
       {{- end }}
-      {{- if .Values.deployment.volumeMounts }}
-      {{- range $name, $value := .Values.deployment.volumeMounts }}
-      volumes:
-      {{- if not (empty $value) }}
-        - name: {{ $value.name | quote }}
-        # ConfigMap Volume
-        {{- if $value.configName }}
-          configMap:
-            name: {{ $value.configName | quote }}
-        {{- end }}
-      {{- end }}
-      {{- end }}
+      {{- if .Values.deployment.volumes }}
+      volumes: {{ toYaml .Values.deployment.volumes | nindent 6 }}
       {{- end }}
       # containers
       {{ include "micro-base.deployment_containers" . }}
