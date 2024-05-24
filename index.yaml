@@ -2,6 +2,14 @@ apiVersion: v1
 entries:
   micro-base:
   - apiVersion: v2
+    created: "2024-05-24T13:47:18.991320145Z"
+    digest: a75423246a7934590224f414875f3f04a0fac2b514eb7f4cc39941d3e80fd378
+    name: micro-base
+    type: application
+    urls:
+    - https://github.com/ymedlop/micro-helm-charts/releases/download/micro-base-1.0.3/micro-base-1.0.3.tgz
+    version: 1.0.3
+  - apiVersion: v2
     created: "2024-05-24T13:29:16.012431736Z"
     digest: 916baf05fc36f7cf46ba9189823ca377293c5e865c6a9d939c6d6e2b743c0501
     name: micro-base
@@ -27,6 +35,18 @@ entries:
     version: 1.0.0
   micro-nginx:
   - apiVersion: v2
+    created: "2024-05-24T13:47:19.11771136Z"
+    dependencies:
+    - name: micro-base
+      repository: file://../micro-base
+      version: 1.0.3
+    digest: 946efe40f95ea93dd4c2aed91d8a023b2cd5114a98378ab83c888e441ec43ffc
+    name: micro-nginx
+    type: application
+    urls:
+    - https://github.com/ymedlop/micro-helm-charts/releases/download/micro-nginx-1.0.3/micro-nginx-1.0.3.tgz
+    version: 1.0.3
+  - apiVersion: v2
     created: "2024-05-24T13:29:16.188419471Z"
     dependencies:
     - name: micro-base
@@ -39,6 +59,18 @@ entries:
     - https://github.com/ymedlop/micro-helm-charts/releases/download/micro-nginx-1.0.2/micro-nginx-1.0.2.tgz
     version: 1.0.2
   micro-nodered:
+  - apiVersion: v2
+    created: "2024-05-24T13:47:19.242772026Z"
+    dependencies:
+    - name: micro-base
+      repository: file://../micro-base
+      version: 1.0.3
+    digest: 08f64a08597fe13490284f8eec545fb64d1f8715d67664b0631634b1f3d2d718
+    name: micro-nodered
+    type: application
+    urls:
+    - https://github.com/ymedlop/micro-helm-charts/releases/download/micro-nodered-1.0.3/micro-nodered-1.0.3.tgz
+    version: 1.0.3
   - apiVersion: v2
     created: "2024-05-24T13:29:16.362751796Z"
     dependencies:
@@ -75,4 +107,4 @@ entries:
     urls:
     - https://github.com/ymedlop/micro-helm-chart/releases/download/micro-nodered-1.0.0/micro-nodered-1.0.0.tgz
     version: 1.0.0
-generated: "2024-05-24T13:29:16.36277507Z"
+generated: "2024-05-24T13:47:19.242798015Z"
