@@ -32,4 +32,15 @@ spec:
       {{- end }}
       # containers
       {{ include "micro-base.deployment_containers" . }}
+      volumes:
+      {{- range $name, $value := .Values.deployment.volumeMounts }}
+      {{- if not (empty $value) }}
+      - name: {{ $value.name | quote }}
+      # ConfigMap Volume
+      {{- if $value.configName -}}
+        configMap:
+          name: {{ $value.configName | quote }}
+      {{- end }}
+      {{- end }}
+      {{- end }}
 {{- end }}

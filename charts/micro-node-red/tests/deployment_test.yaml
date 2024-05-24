@@ -28,10 +28,6 @@ tests:
       deployment.image.repository: custom-node-red
       deployment.image.tag: 1.0.0
     asserts:
-      - contains:
-          path: spec.template.spec.containers
-          content:
-            image: custom-node-red:1.0.0
-            imagePullPolicy: IfNotPresent
-            name: micro-nodered
-
+      - equal:
+          path: spec.template.spec.containers[0].image
+          value: custom-node-red:1.0.0

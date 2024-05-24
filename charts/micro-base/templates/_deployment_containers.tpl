@@ -16,4 +16,10 @@
         {{- end }}
         {{- end }}
         {{ include "micro-base.deployment_probes" . }}
+        ports:
+        {{ toYaml .Values.deployment.ports | nindent 8 }}
+        {{- if .Values.deployment.volumeMounts }}
+        volumeMounts:
+        {{ toYaml .Values.deployment.volumeMounts | nindent 8 }}
+        {{- end }}
 {{- end }}

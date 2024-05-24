@@ -1,13 +1,13 @@
-runtime: micro-nodered
+runtime: micro-nginx
 
-fullnameOverride: micro-nodered
+fullnameOverride: micro-nginx
 
 deployment:
   replicas: 1
   image:
     pullPolicy: IfNotPresent
-    repository: ymedlop/micro-nodered
-    tag: 1.0.0
+    repository: nginx
+    tag: stable-otel
   readinessProbe:
     enabled: false
   livenessProbe:
