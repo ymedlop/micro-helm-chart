@@ -16,8 +16,7 @@
         {{- end }}
         {{- end }}
         {{- if .Values.deployment.env }}
-        env:
-        {{ toYaml .Values.deployment.env | indent 8 }}
+        env: {{ toYaml .Values.deployment.env | nindent 8 }}
         {{- end }}
         ports: {{ toYaml .Values.deployment.ports | nindent 8 }}
         {{- if .Values.deployment.volumeMounts }}

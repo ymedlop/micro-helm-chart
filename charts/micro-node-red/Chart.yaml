@@ -1,8 +1,8 @@
 apiVersion: v2
 name: micro-nodered
 type: application
-version: 1.0.5
+version: 1.0.6
 dependencies:
   - name: micro-base
-    version: 1.0.5
+    version: 1.0.6
     repository: file://../micro-base
