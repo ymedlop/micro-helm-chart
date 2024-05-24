@@ -3,9 +3,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ template "micro-base.fullname" . }}
+  name: {{ .Values.configmap.name }}
   labels:
-    app.kubernetes.io/name: {{ template "micro-base.fullname" $ }}
+    app.kubernetes.io/name: {{ .Values.configmap.name }}
     app.kubernetes.io/instance: {{ template "micro-base.fullname" $ }}
     app.kubernetes.io/version: {{ .Values.deployment.image.tag }}
     app.kubernetes.io/managed-by: helm
@@ -13,8 +13,6 @@ metadata:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
     runtime: {{ .Values.runtime }}
 data:
-{{- range $itemName, $itemValue := .Values.configmap.data -}}
-    {{ $itemName | quote }}: {{ $itemValue | quote }}
-{{- end }}
+{{ toYaml .Values.configmap.data | indent 2 }}
 {{- end }}
 {{- end }}
